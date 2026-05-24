@@ -140,4 +140,4 @@ Designed under the **TOTAL Status: Global Defense 2026** initiative. The archite
 > *“The only reliable cage for superhuman AI is cast from silicon and bound by the laws of physics.”*
 ```
 
-Следующий файл? (скажите "далее" или "next", и я выдам `LICENSE`)
+
