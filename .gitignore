@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# PyTorch / Transformers
+*.pth
+*.bin
+*.safetensors
+*.cache
+
+# HSM emulator build artifacts
+src/hsm_emulator/build/
+*.elf
+*.uf2
+*.hex
+
+# Logs and outputs
+*.log
+*.json
+*.csv
+output/
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secret keys (never commit)
+*.key
+*.pem
+*.p12
+secrets/
+
+# Large model files (should be downloaded separately)
+*.gguf
+*.h5
+
+# Test reports
+reports/
+polygon_results/
