@@ -1,0 +1,29 @@
+# Dockerfile for Aegis‑BFT Consensus Validator Node
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy consensus code
+COPY src/consensus/ ./consensus/
+COPY tools/ ./tools/
+
+# Expose port for validator communication
+EXPOSE 8000
+
+# Environment variables (override at runtime)
+ENV NODE_ID=validator-1
+ENV VALIDATORS_LIST="validator-1:8001,validator-2:8002,validator-3:8003,validator-4:8004,validator-5:8005"
+ENV HSM_DEVICE=/dev/hsm
+
+# Run the consensus node
+CMD python consensus/aegis_bft.py --node-id $NODE_ID --hsm $HSM_DEVICE --peers $VALIDATORS_LIST
