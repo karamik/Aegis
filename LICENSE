@@ -1,0 +1,33 @@
+
+IBSA Public License v1.0
+
+Copyright (c) 2026 International Biosafety and AI Agency (IBSA)
+
+This license governs the use, modification, and distribution of the software and associated documentation files (the "Work") known as Aegis-1 (Rev. 2) / Global Defense 2026.
+
+1. **Grant of Rights**
+   - Anyone may use, copy, modify, and distribute the Work free of charge for **non‑commercial purposes**, including research, education, and personal experimentation.
+   - **IBSA member states** and their authorised bodies (regulators, inspection agencies, certified data centres) may use the Work for official security and validation activities without additional fee, even if such use is part of a commercial or governmental infrastructure, as long as it complies with the Aegis‑1 Treaty.
+
+2. **Conditions for All Use**
+   - The above copyright notice and this license shall be included in all copies or substantial portions of the Work.
+   - Any modification must be clearly marked as such and the modified code must be made available under the same license.
+   - The Work may **not** be used to build, train, or operate any artificial intelligence system that is not itself fully compliant with the Aegis‑1 Treaty (i.e., without hardware HSM Aegis‑2, semantic normaliser, and Apollo‑2 kill switch). Violation of this condition terminates the license.
+
+3. **Commercial Deployment Without Certification**
+   - Any person or entity wishing to deploy the Work as part of a commercial AI service (including but not limited to cloud inference, proprietary AI products, or selling access to an AI system that uses this code) must first obtain a **certification of compliance** from an IBSA‑accredited laboratory.
+   - Uncertified commercial deployment is forbidden. IBSA may seek injunctive relief and statutory damages of up to 10% of the violator’s global annual revenue.
+
+4. **No Warranty and Liability**
+   - The Work is provided “AS IS”. IBSA disclaims all warranties, express or implied, including fitness for a particular purpose.
+   - In no event shall IBSA or the authors be liable for any claim, damages, or other liability arising from the use of the Work.
+
+5. **Termination**
+   - Any violation of sections 2 or 3 automatically terminates your rights under this license. Rights may be reinstated only by explicit written permission from IBSA.
+
+6. **Governing Law**
+   - This license shall be interpreted under the laws of Switzerland, without regard to conflict of law principles. Disputes shall be resolved by the Permanent Court of Arbitration in The Hague.
+
+---
+**For certification inquiries:** IBSA Technical Committee, Geneva, Switzerland.
+```
