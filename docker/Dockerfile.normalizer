@@ -1,0 +1,33 @@
+# Dockerfile for Aegis‑2 Semantic Normalizer service
+# Base image with PyTorch and Hugging Face Transformers
+
+FROM pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements and install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy normalizer code
+COPY src/semantic_normalizer/ ./normalizer/
+
+# Expose port for REST API (if needed)
+EXPOSE 8080
+
+# Environment variables
+ENV PYTHONUNBUFFERED=1
+ENV MODEL_NAME=Qwen/Qwen2.5-7B-Instruct
+
+# Run the normalizer as a service (using FastAPI or similar)
+# For simplicity, we provide an entrypoint that loads the model and waits for stdin.
+# In production, replace with a proper API server.
+
+COPY docker/entrypoint_normalizer.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
