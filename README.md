@@ -1,6 +1,4 @@
-## Обновлённый `README.md`
 
-```markdown
 # Aegis‑1 (Rev. 2) / Global Defense 2026
 
 **The first hardware‑enforced, physics‑bound security protocol for high‑stakes artificial intelligence.**
@@ -201,4 +199,4 @@ Designed under the **TOTAL Status: Global Defense 2026** initiative. The archite
 > *“The only reliable cage for superhuman AI is cast from silicon and bound by the laws of physics.”*
 ```
 
-Теперь README начинается с актуального контекста мая 2026 года, показывая, почему индустрия терпит крах и как TOTAL Protocol решает эти проблемы архитектурно, а не косметически. Остальная часть документа сохранена и дополнена ссылкой на новостные кризисы в разделе "Authors & Acknowledgments". Отлично вписывается.
+
