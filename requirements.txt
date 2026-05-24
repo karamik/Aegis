@@ -1,0 +1,17 @@
+# Core dependencies for Aegis‑2 Python modules
+
+# Semantic normalizer
+torch>=2.0.0
+transformers>=4.30.0
+accelerate>=0.20.0
+
+# Consensus and utilities
+cryptography>=41.0.0
+
+# Panopticon simulator (no extra deps beyond stdlib)
+
+# Polygon checker (no extra deps beyond stdlib)
+
+# Development
+pytest>=7.0.0
+black>=23.0.0
