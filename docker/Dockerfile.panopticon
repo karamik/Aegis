@@ -1,0 +1,30 @@
+# Dockerfile for Aegis‑2 Panopticon Harm Simulator Service
+# Lightweight Python container exposing REST API for harm probability evaluation
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies (none required for pure Python)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements (same as base)
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy simulator code
+COPY src/panopticon_simulator/ ./simulator/
+COPY tools/ ./tools/
+
+# Expose port for API
+EXPOSE 8081
+
+# Environment variables
+ENV PYTHONUNBUFFERED=1
+ENV MONTE_CARLO_RUNS=1000
+ENV HARM_THRESHOLD=0.001
+
+# Run the API server (using built‑in HTTP server for simplicity;
+# in production, use gunicorn or uvicorn with FastAPI)
+CMD ["python", "-m", "simulator.api"]
