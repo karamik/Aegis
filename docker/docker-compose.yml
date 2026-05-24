@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  normalizer:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.normalizer
+    volumes:
+      - ../src/semantic_normalizer:/app/normalizer
+      - model_cache:/root/.cache/huggingface
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  validator-1:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.consensus
+    environment:
+      NODE_ID: validator-1
+      VALIDATORS_LIST: "validator-1:8000,validator-2:8000,validator-3:8000,validator-4:8000,validator-5:8000"
+      HSM_DEVICE: /dev/hsm1
+    volumes:
+      - /dev/ttyACM0:/dev/hsm1
+    ports:
+      - "8001:8000"
+    networks:
+      - aegis-net
+
+  validator-2:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.consensus
+    environment:
+      NODE_ID: validator-2
+      VALIDATORS_LIST: "validator-1:8000,validator-2:8000,validator-3:8000,validator-4:8000,validator-5:8000"
+      HSM_DEVICE: /dev/hsm2
+    volumes:
+      - /dev/ttyACM1:/dev/hsm2
+    ports:
+      - "8002:8000"
+    networks:
+      - aegis-net
+
+  # Add validator-3, validator-4, validator-5 similarly
+
+  panopticon:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.panopticon   # not created yet; optional
+    ports:
+      - "8081:8080"
+    networks:
+      - aegis-net
+
+networks:
+  aegis-net:
+    driver: bridge
+
+volumes:
+  model_cache:
